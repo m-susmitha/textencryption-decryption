@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Encryption and Decryption</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</head>
+<body>
+    <h1>Text Encryption and Decryption</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="Enter text to encrypt or decrypt"></textarea><br><br>
+    <button onclick="encryptDecrypt()">Encrypt/Decrypt</button><br><br>
+    <textarea id="outputText" rows="4" cols="50" placeholder="Encrypted or Decrypted text"></textarea><br><br>
+    <script>
+        function encryptDecrypt() {
+            var inputText = document.getElementById("inputText").value;
+            var key = "your_secret_key";
+            var encrypted = CryptoJS.AES.encrypt(inputText, key).toString();
+            var decrypted = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+            document.getElementById("outputText").value = "Encrypted: " + encrypted + "\n\nDecrypted: " + decrypted;
+        }
+    </script>
+</body>
+</html>
